@@ -40,11 +40,11 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
               size: 30,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
+          const Padding(
+            padding: EdgeInsets.only(left: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Welcome!',
                   style: TextStyle(
