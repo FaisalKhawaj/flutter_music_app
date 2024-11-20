@@ -9,6 +9,22 @@ class AppTextStyle {
     );
   }
 
+  TextStyle ShufflePlayText(){
+    return TextStyle(
+        color: R.colors.primaryButtonBg,
+        fontSize: 18,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.bold
+    );
+  }
+
+  TextStyle HeaderTitle(){
+    return TextStyle(
+      color: R.colors.headerTitle,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
   TextStyle bottomTabLabelText(){
     return const TextStyle(
         fontSize: 14,

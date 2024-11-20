@@ -1,6 +1,8 @@
 
 
+import 'package:flutter_music_app/src/featuredlist/featured_list.dart';
 import 'package:flutter_music_app/src/search/search_music.dart';
+import 'package:flutter_music_app/src/searchmusiccategory/search_music_category.dart';
 
 import '../../../resources/resources.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +19,18 @@ class CustomBottomTab extends StatefulWidget{
 class _CustomBottomTabState extends State<CustomBottomTab>{
   // Current selected index for the bottom navigation
   int _currentIndex = 0;
+
+
+  // final List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  //   GlobalKey<NavigatorState>(),
+  //   GlobalKey<NavigatorState>(),
+  //   GlobalKey<NavigatorState>(),
+  // ];
+
   final List<Widget> _screens=[
       Home(),
-    const SearchMusic(),
-
-   
+    SearchMusicCategory(),
+     FeaturedList()
   ];
 
   @override
@@ -53,6 +62,7 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home,size: 35,),label: 'Home',),
             BottomNavigationBarItem(icon: Icon(Icons.search,size: 35,),label: 'Search',),
+            BottomNavigationBarItem(icon: Icon(Icons.music_note,size: 35,),label: 'Featured',),
 
           ])) ,
     );
