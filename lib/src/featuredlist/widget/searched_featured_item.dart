@@ -2,10 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../resources/resources.dart';
+import 'package:flutter_music_app/src/featuredlist/featured_list.dart';
 
 
 class SearchedFeaturedItem extends StatelessWidget {
-  const SearchedFeaturedItem({super.key});
+  final FeaturedItem item;
+   SearchedFeaturedItem({super.key,required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,9 @@ class SearchedFeaturedItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('ss',style: R.textStyle.popularCardTitle(),),
+              Text(item.title,style: R.textStyle.popularCardTitle(),),
               SizedBox(height: 5,),
-              Text('sub',style: R.textStyle.popuplarCardSubtitle(),)
+              Text(item.subcategory,style: R.textStyle.popuplarCardSubtitle(),)
             ],)),
           SvgPicture.asset(
             'assets/svgs/switch.svg',

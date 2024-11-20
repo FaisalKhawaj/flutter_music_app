@@ -69,11 +69,11 @@ class FeaturedList extends StatelessWidget {
             const SizedBox(height: 8,),
 
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.8,
+              height: MediaQuery.of(context).size.height*0.7,
               child:  ListView.builder(itemCount:songs.length,
                   padding: EdgeInsets.only(bottom: 200),
                   itemBuilder: (context,index){
-                    return SearchedFeaturedItem();
+                    return SearchedFeaturedItem(item:songs[index]);
                   }),),
 
 

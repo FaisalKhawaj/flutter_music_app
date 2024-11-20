@@ -46,7 +46,11 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
       backgroundColor: Colors.white,
       // appBar: AppBar(title: Text('Bottom Tab'),),
       body: _screens[_currentIndex],
-      bottomNavigationBar:Theme(data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory),
+      bottomNavigationBar:Theme(data: Theme.of(context).copyWith(
+          splashFactory: NoSplash.splashFactory,
+        highlightColor: Colors.transparent
+
+      ),
           child: BottomNavigationBar(
           backgroundColor: R.colors.screenBg,
           selectedItemColor: R.colors.primaryButtonBg,
@@ -59,12 +63,15 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
           showSelectedLabels: true,
           currentIndex: _currentIndex,
           onTap:onItemTapped,
+
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home,size: 35,),label: 'Home',),
             BottomNavigationBarItem(icon: Icon(Icons.search,size: 35,),label: 'Search',),
             BottomNavigationBarItem(icon: Icon(Icons.music_note,size: 35,),label: 'Featured',),
 
-          ])) ,
+          ],
+
+          )) ,
     );
   }
 }

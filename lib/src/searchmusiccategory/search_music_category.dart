@@ -41,7 +41,7 @@ class SearchMusicCategory extends StatelessWidget {
 
 
    List<SearchedCategoryItem> songsCategory=[
-     SearchedCategoryItem( title: 'Lucky',bgColor:  getRandomColor(), image: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg',),
+     SearchedCategoryItem( title: 'Lucky Lucky Lucky Lucky',bgColor:  getRandomColor(), image: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg',),
      SearchedCategoryItem( title: 'No Surprises', bgColor: getRandomColor(), image: "https://images-na.ssl-images-amazon.com/images/M/MV5BNDMxMTQzMjQxM15BMl5BanBnXkFtZTgwNzAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg",),
      SearchedCategoryItem(    bgColor: getRandomColor(), title: 'Climbing Up the Walls', image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE5NDc5NzUwNV5BMl5BanBnXkFtZTgwMDM3MDM2NzE@._V1_.jpg", ),
      SearchedCategoryItem( bgColor: getRandomColor(),title: 'Electioneering' ,image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE3MzA4Nzk3NV5BMl5BanBnXkFtZTgwNjAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg",),
@@ -72,30 +72,37 @@ class SearchMusicCategory extends StatelessWidget {
             const SizedBox(height: 40,),
 
 
-            SizedBox(height: MediaQuery.of(context).size.height*0.8,
-            child: ListView.builder(
-           
-                itemCount: songsCategory.length,
-                itemBuilder: (context,index){
-              return  MusicCategoryItem(item:songsCategory[index]);
-            }),
-            ),
-
-
-
-
-
-
-
-
-
             // SizedBox(
-            //   height: MediaQuery.of(context).size.height*0.8,
-            //   child:  ListView.builder(itemCount:songsCategory.length,
-            //       padding: EdgeInsets.only(bottom: 100),
-            //       itemBuilder: (context,index){
-            //         return SearchedFeaturedItem();
-            //       }),),
+            // child: ListView.builder(
+            //
+            //     itemCount: songsCategory.length,
+            //     itemBuilder: (context,index){
+            //   return  MusicCategoryItem(item:songsCategory[index]);
+            // }),
+            // ),
+            
+            
+         SizedBox(
+           height: MediaQuery.of(context).size.height*0.8,
+           child: Container(
+             padding: EdgeInsets.symmetric(horizontal: 15),
+             child: GridView.builder(
+               padding: EdgeInsets.only(bottom: 200),
+                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(mainAxisExtent:130, childAspectRatio:1.7, mainAxisSpacing:20,crossAxisSpacing: 20, crossAxisCount: 2,),
+                 itemCount: songsCategory.length,
+                 itemBuilder: (context,index){
+                   return  MusicCategoryItem(item:songsCategory[index]);
+                 }),
+           ),)
+
+
+
+
+
+
+
+
+
 
 
 

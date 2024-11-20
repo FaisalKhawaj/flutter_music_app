@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_music_app/utils/svg_constants.dart';
@@ -19,7 +20,8 @@ class MusicCategoryItem extends StatelessWidget {
         color :item.bgColor,
         borderRadius: BorderRadius.circular(16),
       ),
-      child:  Stack(
+      child:BackdropFilter(filter: ImageFilter.blur(sigmaX: 0.2,sigmaY: 0.2,),
+      child:   Stack(
         children: [
           Positioned(
             right: -15,
@@ -39,9 +41,15 @@ class MusicCategoryItem extends StatelessWidget {
           ),
           Positioned(left: 10,top:20, child: SvgPicture.asset(SvgConstant.audioRing,width: 40,height: 40,)),
 
-          Positioned(left: 10, top: 70, child: Text(item.title,style: TextStyle(fontSize: 17, color: Colors.white,fontFamily: 'Inter',fontWeight:FontWeight.bold),)),
+          Positioned(left: 10, top: 70, child: Text(item.title,
+            softWrap: true,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis, // Add ellipsis if the text is too long
+
+            style: TextStyle(fontSize: 17, color: Colors.white,fontFamily: 'Inter',fontWeight:FontWeight.bold),)),
 
         ],
+      ),
       ),
     );
   }
