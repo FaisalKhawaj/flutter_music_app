@@ -12,6 +12,13 @@ class AppDecorations{
     );
   }
 
+  BoxDecoration subscriptionCardDecoration(){
+    return  BoxDecoration(
+      color: R.colors.primaryButtonBg,
+      borderRadius: BorderRadius.circular(20),
+    );
+  }
+
 
 
 

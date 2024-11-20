@@ -2,6 +2,7 @@
 
 import 'package:flutter_music_app/src/featuredlist/featured_list.dart';
 import 'package:flutter_music_app/src/searchmusiccategory/search_music_category.dart';
+import 'package:flutter_music_app/src/settings/settings.dart';
 import 'package:get/get.dart';
 import 'package:flutter_music_app/routes/app_routes.dart';
 import 'package:flutter_music_app/src/home/home.dart';
@@ -15,7 +16,8 @@ abstract class AppPages{
     GetPage(name: Routes.home, page: ()=>  Home()),
     GetPage(name: Routes.searchMusic, page: ()=>  SearchMusic()),
     GetPage(name: Routes.featuredList, page: ()=> FeaturedList()),
-    GetPage(name: Routes.searchedMusicCategory, page: ()=> SearchMusicCategory())
+    GetPage(name: Routes.searchedMusicCategory, page: ()=> SearchMusicCategory()),
+    GetPage(name: Routes.settings, page: ()=> const Settings())
 
   ];
 }

@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_music_app/app_export.dart';
+import 'package:flutter_music_app/routes/app_routes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../resources/resources.dart';
 import 'package:flutter_music_app/src/search/search_music.dart';
@@ -11,30 +13,36 @@ class SearchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(child: Container(
-      padding: const EdgeInsets.all(10),
-      margin:const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-      decoration: R.decorations.popularCardDecoration(),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ClipRRect(borderRadius: BorderRadius.circular(15), child: Image.network('https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg', fit: BoxFit.cover, height: 70,width: 70,),),
-          const SizedBox(width: 15,),
-          Expanded( child:
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(item.title,style: R.textStyle.popularCardTitle(),),
-              SizedBox(height: 5,),
-              Text(item.subcategory,style: R.textStyle.popuplarCardSubtitle(),)
-            ],)),
-          SvgPicture.asset(
-            'assets/svgs/switch.svg',
-            width: 25,
-            height: 25,
-          )
-        ],
-      ),
-    ),);
+    return  GestureDetector(
+      onTap: (){
+        // Getx.
+        // Get.toNamed(Routes.featuredList);
+      },
+      child: SizedBox(child: Container(
+        padding: const EdgeInsets.all(10),
+        margin:const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+        decoration: R.decorations.popularCardDecoration(),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ClipRRect(borderRadius: BorderRadius.circular(15), child: Image.network('https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg', fit: BoxFit.cover, height: 70,width: 70,),),
+            const SizedBox(width: 15,),
+            Expanded( child:
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(item.title,style: R.textStyle.popularCardTitle(),),
+                SizedBox(height: 5,),
+                Text(item.subcategory,style: R.textStyle.popuplarCardSubtitle(),)
+              ],)),
+            SvgPicture.asset(
+              'assets/svgs/switch.svg',
+              width: 25,
+              height: 25,
+            )
+          ],
+        ),
+      ),),
+    );
   }
 }
