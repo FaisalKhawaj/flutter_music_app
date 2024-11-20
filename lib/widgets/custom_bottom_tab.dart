@@ -18,8 +18,8 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
   // Current selected index for the bottom navigation
   int _currentIndex = 0;
   final List<Widget> _screens=[
-     Home(),
-    SearchMusic(),
+      Home(),
+    const SearchMusic(),
 
    
   ];
@@ -28,7 +28,7 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    void _onItemTapped(int index){
+    void onItemTapped(int index){
       setState(() {
         _currentIndex=index;
       });
@@ -37,19 +37,22 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
       backgroundColor: Colors.white,
       // appBar: AppBar(title: Text('Bottom Tab'),),
       body: _screens[_currentIndex],
-      bottomNavigationBar:Theme(data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory), child: BottomNavigationBar(
-          enableFeedback: false,
-
+      bottomNavigationBar:Theme(data: Theme.of(context).copyWith(splashFactory: NoSplash.splashFactory),
+          child: BottomNavigationBar(
           backgroundColor: R.colors.screenBg,
           selectedItemColor: R.colors.primaryButtonBg,
           unselectedItemColor: R.colors.unselectedTab,
+          selectedLabelStyle:R.textStyle.bottomTabLabelText().copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+          unselectedLabelStyle: R.textStyle.bottomTabLabelText(),
           showUnselectedLabels: true,
           showSelectedLabels: true,
           currentIndex: _currentIndex,
-          onTap:_onItemTapped,
+          onTap:onItemTapped,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home',),
-            BottomNavigationBarItem(icon: Icon(Icons.search),label: 'Search',),
+            BottomNavigationBarItem(icon: Icon(Icons.home,size: 35,),label: 'Home',),
+            BottomNavigationBarItem(icon: Icon(Icons.search,size: 35,),label: 'Search',),
 
           ])) ,
     );

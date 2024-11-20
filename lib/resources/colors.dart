@@ -9,4 +9,7 @@ class AppColor {
   Color primaryButtonBg = const Color(0xFFF97314);
   Color appBarBottomBorder = const Color(0xFF383838);
   Color unselectedTab= const Color(0xFFAFAFAF);
+  Color viewAllButton= const Color(0xFFEEBB2A);
+  Color cardBg=const Color(0xFF252525);
+
 }
