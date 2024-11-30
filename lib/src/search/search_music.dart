@@ -55,7 +55,7 @@ void handleClickSetting(){
             SizedBox(
               height: MediaQuery.of(context).size.height*0.8,
               child:  ListView.builder(itemCount:songs.length,
-                  padding: EdgeInsets.only(bottom: 100),
+                  padding:const EdgeInsets.only(bottom: 100),
                   itemBuilder: (context,index){
                     return SearchItem(item:songs[index]);
                   }),),

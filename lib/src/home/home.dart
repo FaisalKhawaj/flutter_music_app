@@ -1,10 +1,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_music_app/routes/app_routes.dart';
 import 'package:flutter_music_app/src/home/widget/featured_list_item.dart';
 import 'package:flutter_music_app/src/home/widget/home_header.dart';
 import 'package:flutter_music_app/src/home/widget/popular_trending_card.dart';
 import 'package:flutter_music_app/widgets/row_title_more_button.dart';
+import 'package:get/get.dart';
 
 class PopularTrendingItem{
   final String title;
@@ -27,6 +29,8 @@ class Home extends StatelessWidget {
    Home({super.key});
 
   void handleViewFeaturedAll(){
+// Get
+    Get.toNamed(Routes.featuredList);
 
   }
 

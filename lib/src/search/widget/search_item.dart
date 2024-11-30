@@ -31,7 +31,10 @@ class SearchItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(item.title,style: R.textStyle.popularCardTitle(),),
+                Text( item.title,maxLines: 2,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                  style: R.textStyle.popularCardTitle(),),
                 SizedBox(height: 5,),
                 Text(item.subcategory,style: R.textStyle.popuplarCardSubtitle(),)
               ],)),

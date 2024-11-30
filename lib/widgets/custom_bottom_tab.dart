@@ -5,6 +5,7 @@ import 'package:flutter_music_app/src/featuredlist/featured_list.dart';
 import 'package:flutter_music_app/src/search/search_music.dart';
 import 'package:flutter_music_app/src/searchmusiccategory/search_music_category.dart';
 import 'package:flutter_music_app/src/settings/settings.dart';
+import 'package:flutter_music_app/widgets/search_navigator.dart';
 import 'package:get/get.dart';
 
 import '../../../resources/resources.dart';
@@ -28,9 +29,7 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
 
   final List<Widget> _screens=[
     Home(),
-    SearchMusicCategory(),
-    SearchMusic(),
-    FeaturedList(),
+    SearchNavigator(),
     Settings(),
   ];
 
@@ -41,6 +40,7 @@ class _CustomBottomTabState extends State<CustomBottomTab>{
     void onItemTapped(int index){
       setState(() {
         _currentIndex=index;
+
 
         // Add Get.toNamed() here if you want to use Get for navigation:
         // if (index == 3) {  // If Featured is tapped
@@ -73,7 +73,6 @@ type: BottomNavigationBarType.fixed,
           items:  [
             BottomNavigationBarItem(backgroundColor: R.colors.screenBg , icon: Icon(Icons.home,size: 35,),label: 'Home',),
             BottomNavigationBarItem(backgroundColor: R.colors.screenBg, icon: Icon(Icons.search,size: 35,),label: 'Search',),
-            BottomNavigationBarItem(backgroundColor: R.colors.screenBg,icon: Icon(Icons.music_note,size: 35,),label: 'Featured',),
             BottomNavigationBarItem(backgroundColor:R.colors.screenBg, icon:Icon(Icons.settings,size: 35,),label: 'Settings',),
 
             // BottomNavigationBarItem(icon: Icon(Icons.settings,size: 35,),label: 'Settings',),
