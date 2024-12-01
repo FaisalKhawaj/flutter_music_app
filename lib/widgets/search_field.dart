@@ -17,7 +17,7 @@ class SearchField extends StatelessWidget {
             focusColor: R.colors.inputBg,
             hoverColor: R.colors.subHeading,
             hintStyle:  TextStyle(color: R.colors.subHeading),
-            hintText: 'Search',
+            hintText: 'Search...',
             labelStyle: TextStyle(color: R.colors.subHeading),
             border: R.inputStyle.searchInputBorderStyle(),
             focusedErrorBorder: R.inputStyle.searchInputFocusedBorderStyle(),

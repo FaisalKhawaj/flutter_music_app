@@ -1,6 +1,7 @@
 
 
 import 'package:flutter_music_app/src/featuredlist/featured_list.dart';
+import 'package:flutter_music_app/src/populartrending/popular-trending.dart';
 import 'package:flutter_music_app/src/searchmusiccategory/search_music_category.dart';
 import 'package:flutter_music_app/src/settings/settings.dart';
 import 'package:flutter_music_app/widgets/search_navigator.dart';
@@ -19,8 +20,8 @@ abstract class AppPages{
     GetPage(name: Routes.searchMusic, page: ()=>  SearchMusic()),
     GetPage(name: Routes.featuredList, page: ()=> FeaturedList()),
     GetPage(name: Routes.searchedMusicCategory, page: ()=> SearchMusicCategory()),
-    GetPage(name: Routes.settings, page: ()=> const Settings())
-
+    GetPage(name: Routes.settings, page: ()=> const Settings()),
+   GetPage(name: Routes.popularTrending, page: ()=> PopularTrending())
 
   ];
 }

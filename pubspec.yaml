@@ -39,6 +39,10 @@ dependencies:
   flutter_svg: ^2.0.14
   route_manager: ^2.0.2
   get: ^4.6.6
+  responsive_sizer: ^3.3.1
+  share_plus: ^10.1.2
+  modal_bottom_sheet: ^3.0.0
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:

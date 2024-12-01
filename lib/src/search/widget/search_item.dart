@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_app/app_export.dart';
 import 'package:flutter_music_app/routes/app_routes.dart';
+import 'package:flutter_music_app/widgets/BottomSheetAudioPlayer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../resources/resources.dart';
 import 'package:flutter_music_app/src/search/search_music.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 
 class SearchItem extends StatelessWidget {
@@ -15,6 +17,10 @@ class SearchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return  GestureDetector(
       onTap: (){
+        showCupertinoModalBottomSheet(
+          context: context,
+          builder: (context) => Bottomsheetaudioplayer()
+        );
         // Getx.
         // Get.toNamed(Routes.featuredList);
       },

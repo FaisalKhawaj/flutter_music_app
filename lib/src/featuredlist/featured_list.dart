@@ -46,13 +46,12 @@ Get.back();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:HeaderBackCenteredTitle(title: 'Featured', handleBack: handleBack),
+      appBar:HeaderBackCenteredTitle(title: 'Featured',),
       body: SingleChildScrollView(
         child:Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
 
             SearchField(),
             // Shuffle Play Row

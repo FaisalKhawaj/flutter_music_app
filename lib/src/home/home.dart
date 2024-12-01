@@ -29,9 +29,12 @@ class Home extends StatelessWidget {
    Home({super.key});
 
   void handleViewFeaturedAll(){
-// Get
+
     Get.toNamed(Routes.featuredList);
 
+  }
+  void handleViewPopularAll(){
+    Get.toNamed(Routes.popularTrending);
   }
 
   List<FeaturedItem> songs=[
@@ -69,7 +72,7 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
 
-              RowTitleMoreButton(title: 'Popular & Trending', onPressed: handleViewFeaturedAll),
+              RowTitleMoreButton(title: 'Popular & Trending', onPressed: handleViewPopularAll),
               const SizedBox(height: 20,),
 
               // Popular & Trending Horizotanl List

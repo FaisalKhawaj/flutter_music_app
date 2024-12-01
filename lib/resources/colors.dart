@@ -11,6 +11,7 @@ class AppColor {
   Color unselectedTab= const Color(0xFFAFAFAF);
   Color viewAllButton= const Color(0xFFEEBB2A);
   Color cardBg=const Color(0xFF252525);
+  Color maximizeButton=const Color(0xFF373737);
 
 
 }

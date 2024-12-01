@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_app/src/home/home.dart'; // Import the MyItem class from homedeals.dart
+
 import '../../../resources/resources.dart';
 
 class PopularTrendingCard extends StatelessWidget {
