@@ -9,7 +9,7 @@ class SubscribeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: (){},child: Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 0),
+    return GestureDetector(onTap: (){},child: Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,8 +22,12 @@ class SubscribeCard extends StatelessWidget {
                 const SizedBox(width: 15,),
                 Expanded(child:    Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Get Pro Version',style: R.textStyle.HeaderTitle().copyWith(fontSize: 18),),
-                    Text('Remove All Ads',style: R.textStyle.HeaderTitleText(),)
+                    Text('Get Pro Version',style: R.textStyle.HeaderTitle().copyWith(fontSize: 18,
+                    color: R.themeProvider.colors.subscriptionTitle,
+                    ),),
+                    Text('Remove All Ads',style: R.textStyle.HeaderTitleText().copyWith(
+                      color: R.themeProvider.colors.subscriptionTitle,
+                    ),)
                   ],)),
                 IconButton(onPressed: (){},icon: Icon(size: 30, Icons.chevron_right,color: R.colors.headerTitle),)
               ],

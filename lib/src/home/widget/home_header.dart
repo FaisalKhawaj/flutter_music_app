@@ -7,19 +7,23 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      // surfaceTintColor:R.themeProvider.colors.screenBg ,
+      scrolledUnderElevation: 0,
+      shadowColor: R.themeProvider.colors.screenBg,
+      elevation: 0,
       shape:  Border(
         bottom: BorderSide(
           width: 1,
-          color: R.colors.appBarBottomBorder,
+          color: R.themeProvider.colors.appBarBottomBorder,
         ),
       ),
       toolbarHeight: 100,
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon:  Icon(
             Icons.settings,
-            color: Colors.white,
+            color: R.themeProvider.colors.headerTitle
           ),
         )
       ],
@@ -30,7 +34,9 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+
+            },
             style: IconButton.styleFrom(
               side: const BorderSide(width: 1, color: Color(0xFFABABAB)),
             ),
@@ -40,36 +46,28 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
               size: 30,
             ),
           ),
-          const Padding(
+           Padding(
             padding: EdgeInsets.only(left: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Welcome!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style:R.textStyle.rowTitleHeading(),
                 ),
                 Text(
                   'What do you feel like today?',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Inter',
-                    color: Color(0xFFACACAC),
-                  ),
+                  style:R.textStyle.popuplarCardSubtitle(),
                 ),
               ],
             ),
           )
         ],
       ),
-      backgroundColor: const Color(0xFF1f1f1f),
+      backgroundColor: R.themeProvider.colors.screenBg,
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(80);
 }

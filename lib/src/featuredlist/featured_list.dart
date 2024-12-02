@@ -1,11 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_music_app/routes/app_routes.dart';
 import 'package:flutter_music_app/src/featuredlist/widget/searched_featured_item.dart';
 import 'package:flutter_music_app/utils/svg_constants.dart';
 import 'package:flutter_music_app/widgets/appbar/header_back_centered_title.dart';
 import 'package:flutter_music_app/widgets/search_field.dart';
 import '../../../resources/resources.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class FeaturedItem{
   final String title;
@@ -38,19 +40,20 @@ class FeaturedList extends StatelessWidget {
 
 
   void handleBack(){
-
+Get.back();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:HeaderBackCenteredTitle(title: 'Featured', handleBack: handleBack),
+      backgroundColor: R.themeProvider.colors.screenBg,
+
+      appBar:HeaderBackCenteredTitle(title: 'Featured',),
       body: SingleChildScrollView(
         child:Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
 
             SearchField(),
             // Shuffle Play Row

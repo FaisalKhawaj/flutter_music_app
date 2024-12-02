@@ -9,4 +9,5 @@ class  SvgConstant {
 
       static String premium= '$svgPath/premium.svg';
 
+      static String arrowDown= '$svgPath/arrow-left.svg';
 }

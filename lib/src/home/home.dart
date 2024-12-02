@@ -1,10 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_music_app/routes/app_routes.dart';
 import 'package:flutter_music_app/src/home/widget/featured_list_item.dart';
 import 'package:flutter_music_app/src/home/widget/home_header.dart';
 import 'package:flutter_music_app/src/home/widget/popular_trending_card.dart';
 import 'package:flutter_music_app/widgets/row_title_more_button.dart';
+import 'package:get/get.dart';
+import '../../../resources/resources.dart';
 
 class PopularTrendingItem{
   final String title;
@@ -28,14 +31,27 @@ class Home extends StatelessWidget {
 
   void handleViewFeaturedAll(){
 
+    Get.toNamed(Routes.featuredList);
+
+  }
+  void handleViewPopularAll(){
+    Get.toNamed(Routes.popularTrending);
   }
 
   List<FeaturedItem> songs=[
     FeaturedItem(length: '4:19', title: 'Lucky', image: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg', subcategory: 'Rock'),
-    FeaturedItem(length: '3:48', title: 'No Surprises', image: "https://images-na.ssl-images-amazon.com/images/M/MV5BNDMxMTQzMjQxM15BMl5BanBnXkFtZTgwNzAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg", subcategory: 'Indie Rock'),
-    FeaturedItem(length: '4:45', title: 'Climbing Up the Walls', image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE5NDc5NzUwNV5BMl5BanBnXkFtZTgwMDM3MDM2NzE@._V1_.jpg", subcategory: 'Experimental'),
-    FeaturedItem(length: '2:00', title: 'Electioneering' ,image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE3MzA4Nzk3NV5BMl5BanBnXkFtZTgwNjAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg", subcategory: 'Alternative Rock'),
-    FeaturedItem(length: '1:50', title: 'Fitter Happier', image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMTgxNTAyNTU0NV5BMl5BanBnXkFtZTgwNzMzMDY3OTE@._V1_.jpg", subcategory: 'Rock'),
+    FeaturedItem(length: '3:48', title: 'No Surprises',
+        image: "https://images-na.ssl-images-amazon.com/images/M/MV5BNDMxMTQzMjQxM15BMl5BanBnXkFtZTgwNzAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg",
+        subcategory: 'Indie Rock'),
+    FeaturedItem(length: '4:45', title: 'Climbing Up the Walls',
+        image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE5NDc5NzUwNV5BMl5BanBnXkFtZTgwMDM3MDM2NzE@._V1_.jpg",
+        subcategory: 'Experimental'),
+    FeaturedItem(length: '2:00', title: 'Electioneering' ,
+        image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMjE3MzA4Nzk3NV5BMl5BanBnXkFtZTgwNjAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg",
+        subcategory: 'Alternative Rock'),
+    FeaturedItem(length: '1:50', title: 'Fitter Happier',
+        image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMTgxNTAyNTU0NV5BMl5BanBnXkFtZTgwNzMzMDY3OTE@._V1_.jpg",
+        subcategory: 'Rock'),
     FeaturedItem(length: '4:21', title: 'Karma Police',image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA5MTE3MTgwMF5BMl5BanBnXkFtZTgwOTQxMjUzMDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg", subcategory: 'Alternative Rock'),
     FeaturedItem(length: '6:20', title: 'Let Down',image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA5MTE3MTgwMF5BMl5BanBnXkFtZTgwOTQxMjUzMDE@._V1_SX1500_CR0,0,1500,999_AL_.jpg", subcategory: 'Film Score'),
     FeaturedItem(length: "10:0", title:  "Exit Music (For a Film)",image:  "https://images-na.ssl-images-amazon.com/images/M/MV5BMTAzMTczMjM3NjFeQTJeQWpwZ15BbWU4MDc1MTI1MzAx._V1_SY1000_CR0,0,1495,1000_AL_.jpg", subcategory:"Score"),
@@ -58,14 +74,16 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:const HomeHeader(),
+      backgroundColor: R.themeProvider.colors.screenBg,
+      appBar: HomeHeader(),
       body:  SingleChildScrollView(
+
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 30),
+          padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
           child: Column(
             children: [
 
-              RowTitleMoreButton(title: 'Popular & Trending', onPressed: handleViewFeaturedAll),
+              RowTitleMoreButton(title: 'Popular & Trending', onPressed: handleViewPopularAll),
               const SizedBox(height: 20,),
 
               // Popular & Trending Horizotanl List

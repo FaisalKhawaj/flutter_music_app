@@ -16,7 +16,12 @@ class RowTitleMoreButton extends StatelessWidget {
         Row(children: [
           TextButton(onPressed: onPressed, child: Text('View all',style:R.textStyle.rowViewAllText())),
           IconButton(onPressed: onPressed,
-              icon: Icon(Icons.chevron_right,color: R.colors.viewAllButton,))
+              padding: EdgeInsets.zero,
+              style: IconButton.styleFrom(
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap
+              ),
+              constraints: const BoxConstraints(),
+              icon: Icon(Icons.chevron_right,color: R.themeProvider.colors.viewAllButton,))
         ],)
       ],
     );

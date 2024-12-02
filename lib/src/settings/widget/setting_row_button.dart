@@ -18,15 +18,21 @@ class SettingRowButton extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
           padding:const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
           decoration: BoxDecoration(
-            border: Border.all(width: 1,color: R.colors.appBarBottomBorder),
+            color: R.themeProvider.colors.settingButton,
+            border: Border.all(width: 1,color: R.themeProvider.colors.appBarBottomBorder),
             borderRadius: BorderRadius.circular(10),
+              boxShadow: [BoxShadow(
+                  blurRadius: 0.4,
+                spreadRadius: 0.2,
+                color:Color(0xFFFFF)
+              )]
           ),
           child: Row(
             children: [
-              Icon(icon,color: R.colors.headerTitle,),
+              Icon(icon,color: R.themeProvider.colors.headerTitle,),
               const SizedBox(width: 10,),
               Expanded(child: Text(buttonTitle,style: R.textStyle.HeaderTitle().copyWith(fontWeight: FontWeight.w600,fontSize: 15),)),
-              Icon(Icons.chevron_right,color: R.colors.headerTitle,)
+              Icon(Icons.chevron_right,color: R.themeProvider.colors.headerTitle,)
             ],
           ),
         ),

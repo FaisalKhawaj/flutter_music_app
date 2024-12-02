@@ -18,10 +18,12 @@ class MusicCategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return  GestureDetector(
       onTap: (){
-        // Get.toNamed(Routes.featuredList);
+        Get.toNamed(Routes.searchMusic);
       },
       child: Container(
-        width: 200,height: 130,
+        // width: 200,
+        width: double.infinity,
+        height: 130,
         decoration: BoxDecoration(
           color :item.bgColor,
           borderRadius: BorderRadius.circular(16),
@@ -47,13 +49,24 @@ class MusicCategoryItem extends StatelessWidget {
               ),
               Positioned(left: 10,top:20, child: SvgPicture.asset(SvgConstant.audioRing,width: 40,height: 40,)),
 
-              Positioned(left: 10, top: 70, child: Text(item.title,
-                softWrap: true,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis, // Add ellipsis if the text is too long
+              Positioned(left: 10, top: 70,
+                  child: SizedBox(
+                    width: 160, // Constrain width
+                    child: Text(
+                      item.title,
+                      softWrap: true,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis, // Ellipsis for overflow
+                      style: const TextStyle(
+                        fontSize: 17,
+                        color: Colors.white,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
 
-                style: TextStyle(fontSize: 17, color: Colors.white,fontFamily: 'Inter',fontWeight:FontWeight.bold),)),
-
+                  ),
+              )
             ],
           ),
         ),
