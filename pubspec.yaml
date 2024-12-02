@@ -43,6 +43,7 @@ dependencies:
   share_plus: ^10.1.2
   modal_bottom_sheet: ^3.0.0
   audioplayers: ^6.1.0
+  just_audio: ^0.9.42
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/svgs/
+    - assets/music/
+    - assets/music/aliMola.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

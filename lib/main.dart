@@ -7,11 +7,13 @@ import '../../../resources/resources.dart';
 import 'package:flutter_music_app/widgets/custom_bottom_tab.dart';
 import 'package:get/get.dart'; // Import GetX
 
-void main() {
+void main() async {
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
   @override

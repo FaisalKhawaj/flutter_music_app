@@ -19,7 +19,7 @@ class SearchItem extends StatelessWidget {
       onTap: (){
         showCupertinoModalBottomSheet(
           context: context,
-          builder: (context) => Bottomsheetaudioplayer()
+          builder: (context) => Bottomsheetaudioplayer(item:item)
         );
         // Getx.
         // Get.toNamed(Routes.featuredList);
@@ -31,7 +31,7 @@ class SearchItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ClipRRect(borderRadius: BorderRadius.circular(15), child: Image.network('https://images-na.ssl-images-amazon.com/images/M/MV5BMTUyNjkxOTk5NV5BMl5BanBnXkFtZTgwODAxMTc1ODE@._V1_SX1777_CR0,0,1777,744_AL_.jpg', fit: BoxFit.cover, height: 70,width: 70,),),
+            ClipRRect(borderRadius: BorderRadius.circular(15), child: Image.network(item.image, fit: BoxFit.cover, height: 70,width: 70,),),
             const SizedBox(width: 15,),
             Expanded( child:
             Column(
