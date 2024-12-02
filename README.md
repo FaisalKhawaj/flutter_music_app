@@ -1,5 +1,7 @@
-# flutter_music_app
+
+
 # Screenshots
+# flutter_music_app![Uploading Screenshot 2024-12-03 at 1.35.06 AM.png…]()
 ![Simulator Screenshot - iPhone 14 Plus - 2024-11-21 at 03 16 02](https://github.com/user-attachments/assets/9fbadd09-a777-4eee-a2ae-c84014494819)
 ![Simulator Screenshot - iPhone 14 Plus - 2024-11-21 at 03 16 14](https://github.com/user-attachments/assets/e0198844-62d1-4fdc-b45d-a25da6f17f14)
 
