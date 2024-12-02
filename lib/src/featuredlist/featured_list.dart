@@ -46,6 +46,8 @@ Get.back();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: R.themeProvider.colors.screenBg,
+
       appBar:HeaderBackCenteredTitle(title: 'Featured',),
       body: SingleChildScrollView(
         child:Column(

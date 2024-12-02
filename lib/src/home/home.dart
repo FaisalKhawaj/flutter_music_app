@@ -7,6 +7,7 @@ import 'package:flutter_music_app/src/home/widget/home_header.dart';
 import 'package:flutter_music_app/src/home/widget/popular_trending_card.dart';
 import 'package:flutter_music_app/widgets/row_title_more_button.dart';
 import 'package:get/get.dart';
+import '../../../resources/resources.dart';
 
 class PopularTrendingItem{
   final String title;
@@ -73,10 +74,12 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:const HomeHeader(),
+      backgroundColor: R.themeProvider.colors.screenBg,
+      appBar: HomeHeader(),
       body:  SingleChildScrollView(
+
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 30),
+          padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
           child: Column(
             children: [
 

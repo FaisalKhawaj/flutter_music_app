@@ -14,11 +14,11 @@ class HeaderTitleIconJustifyBetween extends StatelessWidget implements Preferred
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: false,
-      backgroundColor: R.colors.screenBg,
+      backgroundColor: R.themeProvider.colors.screenBg,
       title:Text(title,style: R.textStyle.HeaderTitle(),) ,
       // leading: ,
       actions: [
-        IconButton(onPressed:handleButtonClick, icon: Icon(Icons.settings,color: R.colors.headerTitle,))
+        IconButton(onPressed:handleButtonClick, icon: Icon(Icons.settings,color: R.themeProvider.colors.headerTitle,))
       ],
     );
   }

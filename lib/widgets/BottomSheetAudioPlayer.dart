@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_music_app/utils/helper.dart';
 import 'package:flutter_music_app/utils/music.dart';
 import 'package:flutter_music_app/utils/svg_constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -130,13 +131,13 @@ class _BottomsheetaudioplayerState extends State<Bottomsheetaudioplayer> {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double responsiveImageHeight = screenHeight * 0.4;
     return Scaffold(
-      backgroundColor: R.colors.screenBg,
+      backgroundColor: R.themeProvider.colors.screenBg,
       appBar: AppBar(
-        backgroundColor: R.colors.screenBg,
-        leading: IconButton(onPressed: (){}, icon: SvgPicture.asset(SvgConstant.arrowDown,)),
+        backgroundColor: R.themeProvider.colors.screenBg,
+        leading: IconButton(onPressed: (){}, icon: SvgPicture.asset(SvgConstant.arrowDown,color: R.themeProvider.colors.headerTitle,)),
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz_outlined,color: R.colors.headerTitle,))
+          IconButton(onPressed: (){}, icon: Icon(Icons.more_horiz_outlined,color: R.themeProvider.colors.headerTitle,))
         ],
       ),
       body: Column(
@@ -145,14 +146,14 @@ class _BottomsheetaudioplayerState extends State<Bottomsheetaudioplayer> {
         children: [
 
           // Music Image Full Screen Icon
-          Padding(padding: EdgeInsets.symmetric(vertical: 10),
+          Padding(padding: const EdgeInsets.symmetric(vertical: 10),
             child:
             Stack(children: [
               Positioned(child: ClipRRect(
                 child: Image.network(widget.item.image,width: double.infinity,height: responsiveImageHeight,fit: BoxFit.cover,),
               )),
               Positioned( top: 15 ,right: 20, child:
-              IconButton(color: R.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.fullscreen,color: R.colors.headerTitle,))
+              IconButton(color: R.themeProvider.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.themeProvider.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.fullscreen,color: R.themeProvider.colors.headerTitle,))
               )
             ],),
           ),
@@ -174,36 +175,51 @@ class _BottomsheetaudioplayerState extends State<Bottomsheetaudioplayer> {
                   stream: _positionDataStream,
                   builder: (context, snapshot) {
                     final positionData = snapshot.data;
-                    return Slider(
-                      value: positionData?.position.inSeconds.toDouble() ?? 0,
-                      max: positionData?.duration.inSeconds.toDouble() ?? 1,
-                      onChanged: (value) {
-                        _player.seek(Duration(seconds: value.toInt()));
-                      },
-                      activeColor: Colors.white,
-                      thumbColor: R.colors.primaryButtonBg,
+                    final currentPosition = positionData?.position ?? Duration.zero;
+                    final totalDuration = positionData?.duration ?? Duration.zero;
+
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Slider(
+                          value: positionData?.position.inSeconds.toDouble() ?? 0,
+                          max: positionData?.duration.inSeconds.toDouble() ?? 1,
+                          onChanged: (value) {
+                            _player.seek(Duration(seconds: value.toInt()));
+                          },
+                          activeColor: R.themeProvider.colors.primaryButtonBg,
+                          thumbColor: R.themeProvider.colors.primaryButtonBg,
+                        ),
+                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(Helper.formatDuration(currentPosition),style: R.textStyle.popuplarCardSubtitle()),
+                          Text(Helper.formatDuration(totalDuration),style: R.textStyle.popuplarCardSubtitle()),
+
+                        ],
+                        )
+                      ],
                     );
                   },
                 ),
                 const SizedBox(height: 15,),
               Container(
-                height: screenHeight*0.19,
+                height: screenHeight*0.16,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
                     IconButton(onPressed: (){}, icon: Icon(Icons.shuffle,size: 35,)),
-                    IconButton(onPressed: _seekBackward, icon: Icon(Icons.skip_previous,size: 35, color: R.colors.headerTitle),),
+                    IconButton(onPressed: _seekBackward, icon: Icon(Icons.skip_previous,size: 35, color: R.themeProvider.colors.headerTitle),),
                     IconButton(onPressed: _togglePlayback,
                         iconSize: 40,
                         style: IconButton.styleFrom(
-                          backgroundColor: R.colors.primaryButtonBg,
+                          backgroundColor: R.themeProvider.colors.primaryButtonBg,
                         ),
-                        icon: Icon(_player.playing ? Icons.pause : Icons.play_arrow,color: R.colors.headerTitle,)),
+                        icon: Icon(_player.playing ? Icons.pause : Icons.play_arrow,color: R.themeProvider.colors.screenBg,)),
 
-                    IconButton(onPressed:_seekForward, icon: Icon(Icons.skip_next, size: 35,color: R.colors.headerTitle,)),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.repeat, size: 35,color: R.colors.headerTitle,))
+                    IconButton(onPressed:_seekForward, icon: Icon(Icons.skip_next, size: 35,color: R.themeProvider.colors.headerTitle,)),
+                    IconButton(onPressed: (){}, icon: Icon(Icons.repeat, size: 35,color: R.themeProvider.colors.headerTitle,))
 
                   ],
                 ),
@@ -216,9 +232,10 @@ class _BottomsheetaudioplayerState extends State<Bottomsheetaudioplayer> {
                   // crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(color: R.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.music_note,color: R.colors.headerTitle,)),
-                    IconButton(color: R.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.favorite_outline,color: R.colors.headerTitle,)),
-                    IconButton(color: R.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.sensors,color: R.colors.headerTitle,)),
+
+                    IconButton( color: R.themeProvider.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.themeProvider.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.music_note,color: R.themeProvider.colors.headerTitle,)),
+                    IconButton(color: R.themeProvider.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.themeProvider.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.favorite_outline,color: R.themeProvider.colors.headerTitle,)),
+                    IconButton(color: R.themeProvider.colors.screenBg, style: IconButton.styleFrom(backgroundColor: R.themeProvider.colors.maximizeButton), onPressed: (){}, icon: Icon(size: 30, Icons.sensors,color: R.themeProvider.colors.headerTitle,)),
                   ],
                 ),
               ],

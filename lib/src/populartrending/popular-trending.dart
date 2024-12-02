@@ -5,6 +5,7 @@ import 'package:flutter_music_app/src/populartrending/widgets/PopularItem.dart';
 import 'package:flutter_music_app/theme/app_colors.dart';
 import 'package:flutter_music_app/widgets/appbar/header_back_centered_title.dart';
 import 'package:flutter_music_app/widgets/search_field.dart';
+import '../../../resources/resources.dart';
 
 class PopularTrendingItem{
   final String title;
@@ -45,6 +46,7 @@ class PopularTrending extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: R.themeProvider.colors.screenBg,
         appBar:HeaderBackCenteredTitle(title: 'Popular & Trending'),
     body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

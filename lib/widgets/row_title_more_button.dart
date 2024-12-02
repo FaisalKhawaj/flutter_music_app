@@ -21,7 +21,7 @@ class RowTitleMoreButton extends StatelessWidget {
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap
               ),
               constraints: const BoxConstraints(),
-              icon: Icon(Icons.chevron_right,color: R.colors.viewAllButton,))
+              icon: Icon(Icons.chevron_right,color: R.themeProvider.colors.viewAllButton,))
         ],)
       ],
     );

@@ -5,13 +5,13 @@ class AppTextStyle {
 
   TextStyle HeaderTitleText() {
     return TextStyle(
-      color: R.colors.headerTitle,
+      color: R.themeProvider.colors.headerTitle,
     );
   }
 
   TextStyle ShufflePlayText(){
     return TextStyle(
-        color: R.colors.primaryButtonBg,
+        color: R.themeProvider.colors.primaryButtonBg,
         fontSize: 18,
         fontFamily: 'Inter',
         fontWeight: FontWeight.bold
@@ -20,7 +20,7 @@ class AppTextStyle {
 
   TextStyle HeaderTitle(){
     return TextStyle(
-      color: R.colors.headerTitle,
+      color: R.themeProvider.colors.headerTitle,
       fontWeight: FontWeight.bold,
     );
   }
@@ -35,7 +35,7 @@ class AppTextStyle {
 
   TextStyle popularCardTitle(){
     return TextStyle(
-      color: R.colors.headerTitle,
+      color: R.themeProvider.colors.headerTitle,
       fontSize: 16,
       fontWeight: FontWeight.bold,
     );
@@ -46,13 +46,13 @@ class AppTextStyle {
         fontSize: 14,
         fontFamily: 'Inter',
         fontWeight: FontWeight.w500,
-        color:R.colors.subHeading
+        color:R.themeProvider.colors.subHeading
     );
   }
 
   TextStyle rowTitleHeading(){
     return TextStyle(
-        color: R.colors.headerTitle,
+        color: R.themeProvider.colors.headerTitle,
         fontSize: 18,
         fontFamily: 'Inter',
         fontWeight: FontWeight.bold
@@ -62,7 +62,7 @@ class AppTextStyle {
   TextStyle rowViewAllText(){
     return
       TextStyle(
-          color:  R.colors.viewAllButton,
+          color:  R.themeProvider.colors.viewAllButton,
           fontWeight: FontWeight.w500,
           fontFamily: 'Inter',
           fontSize: 17

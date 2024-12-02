@@ -11,13 +11,13 @@ class HeaderBackCenteredTitle extends StatelessWidget implements PreferredSizeWi
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // backgroundColor: Colors.red,
-        backgroundColor:R.colors.screenBg ,
+      scrolledUnderElevation: 0,
+        backgroundColor:R.themeProvider.colors.screenBg ,
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading:IconButton(onPressed: (){
           Get.back();
-        }, icon: Icon(Icons.chevron_left,size: 40, color: R.colors.headerTitle,)) ,
+        }, icon: Icon(Icons.chevron_left,size: 40, color: R.themeProvider.colors.headerTitle,)) ,
         title: Text(title,style: R.textStyle.HeaderTitle(),)
     );
   }

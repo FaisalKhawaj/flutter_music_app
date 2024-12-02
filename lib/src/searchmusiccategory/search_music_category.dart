@@ -58,7 +58,7 @@ class SearchMusicCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: R.colors.screenBg,
+      backgroundColor: R.themeProvider.colors.screenBg,
       appBar: HeaderTitleIconJustifyBetween(title: 'Search', handleButtonClick: handleClickSetting),
       body:  SingleChildScrollView(
         child: Column(
